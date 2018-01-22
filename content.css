@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+.content
+{
+}
+
+.chapter
+{
+	padding: 0;
+	position: relative;
+	z-index: 1;
+	width: 640px;
+	height: 900px;
+	overflow: hidden;
+	box-shadow: 5px 5px 5px #666666;
+}
+
+@-webkit-keyframes turn-to-next-page
+{
+	from
+	{
+		left: 640px;
+	}
+	to
+	{
+		left: 0px;
+	}
+}
+
+@-webkit-keyframes turn-to-previous-page
+{
+	from
+	{
+		left: 0px;
+		z-index: 2;
+	}
+	to
+	{
+		left: 640px;
+		z-index: 2;
+	}
+}
+
+.chapter__page
+{
+	display: block;
+	position: absolute;
+	-webkit-animation: turn-to-previous-page 0.3s;
+}
+
+.chapter__page[data-already-read-page=true]
+{
+	-webkit-animation: turn-to-next-page 0.3s;
+	z-index: 2;
+}
+
+.chapter__page img
+{
+	width: 640px;
+	height: 900px;
+}

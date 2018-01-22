@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+body
+{
+	margin: 0;
+	padding: 0;
+	background-color: gray;
+}
+
+h1
+{
+	display: none;
+}
+
+@-webkit-keyframes turn-menu-on
+{
+	from { opacity: 0 }
+	to { opacity: 0.7 }
+}
+
+@-webkit-keyframes turn-menu-off
+{
+	from { opacity: 0.7 }
+	to { opacity: 0 }
+}
+
+.book > header
+{
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: white;
+}
+
+.book > header[data-showing-info=true]
+{
+	opacity: 0.7;
+	-webkit-animation: turn-menu-on 0.3s;
+}
+
+.book > header:not([data-showing-info=true])
+{
+	opacity: 0;
+	-webkit-animation: turn-menu-off 0.3s;
+}
+
+/* 不要だけど念のため書く */
+.book > header::after
+{
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.book > header > h2
+{
+	float: left;
+	width: 50%;
+}
+
+.book > header > .tag
+{
+	float: right;
+	width: 50%;
+}
